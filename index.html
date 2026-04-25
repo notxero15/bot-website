@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chromify Bot</title>
+  <title>Chromify Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -13,29 +13,24 @@
       text-align: center;
     }
 
-    .hero {
-      padding: 100px 20px;
-      background: radial-gradient(circle at top, #1a1a2e, #0b0b10);
+    .topbar {
+      padding: 20px;
+      background: #11111a;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .title {
-      font-size: 54px;
+    .logo {
       font-weight: bold;
-      background: linear-gradient(90deg, #5865F2, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .subtitle {
-      color: #aaa;
-      margin-top: 10px;
+      color: #5865F2;
     }
 
     .btn {
-      margin-top: 25px;
-      padding: 12px 26px;
+      padding: 8px 14px;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       background: #5865F2;
       color: white;
       cursor: pointer;
@@ -43,16 +38,21 @@
     }
 
     .btn:hover {
-      transform: scale(1.05);
       background: #4752c4;
     }
 
-    .section {
+    .hero {
       padding: 50px 20px;
     }
 
-    h2 {
-      color: #ddd;
+    .title {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      color: #aaa;
+      margin-top: 5px;
     }
 
     .grid {
@@ -60,45 +60,29 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
+      margin-top: 30px;
     }
 
     .card {
       background: #151522;
       padding: 18px;
-      width: 220px;
+      width: 230px;
       border-radius: 12px;
       border: 1px solid #222;
       transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       border-color: #5865F2;
       box-shadow: 0 0 15px rgba(88,101,242,0.3);
     }
 
-    /* DASHBOARD */
-    .dashboard {
-      background: #11111a;
-      padding: 25px;
-      border-radius: 14px;
-      width: 320px;
-      margin: auto;
-      border: 1px solid #222;
-    }
-
-    .status-line {
-      display: flex;
-      justify-content: space-between;
-      margin: 12px 0;
-      color: #bbb;
-    }
-
-    .dot {
+    .status-dot {
       height: 10px;
       width: 10px;
-      border-radius: 50%;
       background: #22c55e;
+      border-radius: 50%;
       display: inline-block;
       margin-right: 6px;
       box-shadow: 0 0 10px #22c55e;
@@ -112,73 +96,92 @@
     }
 
     .footer {
+      margin-top: 50px;
       padding: 30px;
-      color: #555;
+      border-top: 1px solid #222;
+      color: #666;
       font-size: 13px;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo">🎨 Chromify Dashboard</div>
+
+  <div>
+    <a href="index.html">
+      <button class="btn">Home</button>
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
 <div class="hero">
-  <div class="title">🎨 Chromify</div>
-  <div class="subtitle">Modern multi-server color role system for Discord</div>
-
-  <a href="YOUR_INVITE_LINK">
-    <button class="btn">Invite Bot</button>
-  </a>
+  <div class="title">Bot Control Panel</div>
+  <div class="subtitle">Manage and view your Discord bot system</div>
 </div>
 
-<div class="section">
-  <h2>✨ Features</h2>
-  <div class="grid">
-    <div class="card">🎨 Reaction Roles</div>
-    <div class="card">⚡ Slash Commands</div>
-    <div class="card">🌍 Multi-Server</div>
-    <div class="card">🔒 Secure System</div>
+<!-- STATS -->
+<div class="grid">
+
+  <div class="card">
+    <p><span class="status-dot"></span> Status</p>
+    <h3>Online</h3>
   </div>
-</div>
 
-<div class="section">
-  <h2>📌 Commands</h2>
-  <div class="grid">
-    <div class="card">/colorpanel</div>
-    <div class="card">/colorpaneldelete</div>
-    <div class="card">/help</div>
-    <div class="card">/about</div>
-    <div class="card">/ping</div>
+  <div class="card">
+    <p>📡 Servers</p>
+    <h3>Connected</h3>
   </div>
-</div>
 
-<div class="section">
-  <h2>📊 Bot Dashboard</h2>
-
-  <div class="dashboard">
-    <div class="status-line">
-      <span><span class="dot"></span>Status</span>
-      <span>Online</span>
-    </div>
-
-    <div class="status-line">
-      <span>Servers</span>
-      <span>Connected</span>
-    </div>
-
-    <div class="status-line">
-      <span>Uptime</span>
-      <span>Running</span>
-    </div>
-
-    <div class="status-line">
-      <span>Ping</span>
-      <span>Stable</span>
-    </div>
+  <div class="card">
+    <p>⏱ Uptime</p>
+    <h3>Running</h3>
   </div>
+
+  <div class="card">
+    <p>📶 Ping</p>
+    <h3>Stable</h3>
+  </div>
+
 </div>
 
+<!-- QUICK ACTIONS -->
+<div class="grid">
+
+  <div class="card">
+    <p>⚡ Invite Bot</p>
+    <a href="YOUR_INVITE_LINK">
+      <button class="btn">Open Invite</button>
+    </a>
+  </div>
+
+  <div class="card">
+    <p>📄 Legal</p>
+    <a href="privacy.html">
+      <button class="btn">Privacy</button>
+    </a>
+  </div>
+
+  <div class="card">
+    <p>📜 Terms</p>
+    <a href="terms.html">
+      <button class="btn">Terms</button>
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
 <div class="footer">
-  Made for Discord servers • Clean • Fast • Modern
+  Chromify Dashboard • Clean • Fast • Modern
 </div>
 
 </body>
