@@ -2,51 +2,88 @@
 <html>
 <head>
   <title>Chromify Bot</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial;
-      background: #0f0f0f;
+      background: radial-gradient(circle at top, #1a1a2e, #0f0f0f);
       color: white;
       text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* ANIMATION BACKGROUND GLOW */
+    .glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #5865F2;
+      filter: blur(120px);
+      opacity: 0.25;
+      top: -100px;
+      left: -100px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(30px); }
     }
 
     .hero {
-      padding: 80px 20px;
+      padding: 100px 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .title {
-      font-size: 42px;
+      font-size: 50px;
       font-weight: bold;
     }
 
     .subtitle {
       color: #aaa;
       margin-top: 10px;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .btn {
-      margin-top: 20px;
-      padding: 12px 24px;
+      margin-top: 25px;
+      padding: 12px 26px;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       background: #5865F2;
       color: white;
       font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #4752c4;
     }
 
     .section {
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
+    /* GLASS CARDS */
     .card {
-      background: #1a1a1a;
-      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
       margin: 10px auto;
       width: 320px;
-      border-radius: 10px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #5865F2;
     }
 
     a {
@@ -64,10 +101,12 @@
 
 <body>
 
+  <div class="glow"></div>
+
   <!-- HERO -->
   <div class="hero">
     <div class="title">🎨 Chromify Bot</div>
-    <div class="subtitle">Multi-server color role system for Discord servers</div>
+    <div class="subtitle">A modern multi-server color role system for Discord</div>
 
     <a href="YOUR_INVITE_LINK">
       <button class="btn">Invite Bot</button>
@@ -99,29 +138,18 @@
     <h2>💬 Support</h2>
 
     <div class="card">
-      Join our support server for help<br><br>
+      Need help? Join our support server
+      <br><br>
+
       <a href="YOUR_SUPPORT_LINK">
         <button class="btn">Get Support</button>
       </a>
     </div>
   </div>
 
-  <!-- LEGAL -->
-  <div class="section">
-    <h2>📄 Legal</h2>
-
-    <div class="card">
-      <a href="/privacy.html">Privacy Policy</a>
-    </div>
-
-    <div class="card">
-      <a href="/terms.html">Terms of Service</a>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <div class="footer">
-    Made for Discord servers • Simple • Fast • Clean
+    Made for Discord servers • Clean • Fast • Modern
   </div>
 
 </body>
