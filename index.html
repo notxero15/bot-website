@@ -15,7 +15,7 @@
     }
 
     /* =========================
-       TOP BANNER (BIGGER)
+       TOP BANNER
     ========================= */
     #topBanner {
       position: fixed;
@@ -48,11 +48,10 @@
     #topBanner span {
       font-weight: bold;
       font-size: 24px;
-      letter-spacing: 0.5px;
     }
 
     /* =========================
-       HERO (PARALLAX)
+       HERO (PARALLAX FIXED)
     ========================= */
     .hero {
       position: relative;
@@ -61,32 +60,19 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: 0;
-      width: 100%;
-      height: 200%;
       background: url("https://i.imgur.com/I29plAr.png") center/cover no-repeat;
-      transform: translateY(0px);
-      z-index: -2;
+      background-attachment: fixed;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: rgba(0,0,0,0.65);
-      z-index: -1;
     }
 
     .hero-content {
+      position: relative;
       z-index: 2;
     }
 
@@ -222,7 +208,7 @@
 </div>
 
 <!-- =========================
-     PARALLAX SCRIPT
+     SCROLL BANNER HIDE
 ========================= -->
 <script>
 let lastScroll = window.scrollY;
@@ -231,7 +217,6 @@ const banner = document.getElementById("topBanner");
 window.addEventListener("scroll", () => {
   const current = window.scrollY;
 
-  // hide/show banner
   if (current > lastScroll) {
     banner.classList.add("hidden");
   } else {
@@ -239,12 +224,6 @@ window.addEventListener("scroll", () => {
   }
 
   lastScroll = current;
-
-  // PARALLAX EFFECT
-  const hero = document.querySelector(".hero::before");
-  const bg = document.querySelector(".hero");
-
-  document.querySelector(".hero").style.backgroundPositionY = current * 0.4 + "px";
 });
 </script>
 
