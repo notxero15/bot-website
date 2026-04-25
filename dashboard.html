@@ -2,21 +2,29 @@
 <html>
 <head>
   <title>Chromify Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body style="background:#0f0f0f;color:white;text-align:center;font-family:Arial;padding:40px;">
 
 <h1>📊 Bot Dashboard</h1>
 
-<div id="servers">Servers: loading...</div>
-<div id="uptime">Uptime: loading...</div>
+<div style="background:#1a1a1a;padding:20px;border-radius:10px;width:250px;margin:auto;">
+  <h2 id="servers">Servers: loading...</h2>
+</div>
 
 <script>
 async function load() {
-  const res = await fetch("/api/status");
-  const data = await res.json();
+  try {
+    const res = await fetch("/api/status");
+    const data = await res.json();
 
-  document.getElementById("servers").innerText = "Servers: " + data.servers;
-  document.getElementById("uptime").innerText = "Uptime: " + data.uptime + "s";
+    document.getElementById("servers").innerText =
+      "Servers: " + data.servers;
+  } catch (e) {
+    document.getElementById("servers").innerText =
+      "Servers: offline";
+  }
 }
 
 load();
