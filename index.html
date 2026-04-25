@@ -10,11 +10,11 @@
       font-family: Arial, sans-serif;
       background: #0b0b10;
       color: white;
-      text-align: center;
     }
 
+    /* TOP BAR */
     .topbar {
-      padding: 20px;
+      padding: 18px 25px;
       background: #11111a;
       border-bottom: 1px solid #222;
       display: flex;
@@ -39,14 +39,17 @@
 
     .btn:hover {
       background: #4752c4;
+      transform: scale(1.05);
     }
 
-    .hero {
-      padding: 50px 20px;
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding: 40px 20px;
     }
 
     .title {
-      font-size: 40px;
+      font-size: 34px;
       font-weight: bold;
     }
 
@@ -55,30 +58,43 @@
       margin-top: 5px;
     }
 
+    /* GRID */
     .grid {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
-      margin-top: 30px;
+      padding: 20px;
     }
 
     .card {
       background: #151522;
       padding: 18px;
-      width: 230px;
+      width: 250px;
       border-radius: 12px;
       border: 1px solid #222;
       transition: 0.3s;
+      text-align: left;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       border-color: #5865F2;
-      box-shadow: 0 0 15px rgba(88,101,242,0.3);
+      box-shadow: 0 0 15px rgba(88,101,242,0.25);
     }
 
-    .status-dot {
+    .label {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .value {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .dot {
       height: 10px;
       width: 10px;
       background: #22c55e;
@@ -95,16 +111,22 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .footer {
-      margin-top: 50px;
-      padding: 30px;
-      border-top: 1px solid #222;
-      color: #666;
-      font-size: 13px;
+    /* ACTION CARDS */
+    .action {
+      text-align: center;
     }
 
     a {
       text-decoration: none;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #222;
+      color: #666;
+      font-size: 13px;
     }
   </style>
 </head>
@@ -115,65 +137,63 @@
 <div class="topbar">
   <div class="logo">🎨 Chromify Dashboard</div>
 
-  <div>
-    <a href="index.html">
-      <button class="btn">Home</button>
-    </a>
-  </div>
+  <a href="index.html">
+    <button class="btn">Home</button>
+  </a>
 </div>
 
-<!-- HERO -->
-<div class="hero">
+<!-- HEADER -->
+<div class="header">
   <div class="title">Bot Control Panel</div>
-  <div class="subtitle">Manage and view your Discord bot system</div>
+  <div class="subtitle">Live system overview & management</div>
 </div>
 
 <!-- STATS -->
 <div class="grid">
 
   <div class="card">
-    <p><span class="status-dot"></span> Status</p>
-    <h3>Online</h3>
+    <div class="label"><span class="dot"></span> STATUS</div>
+    <div class="value">Online</div>
   </div>
 
   <div class="card">
-    <p>📡 Servers</p>
-    <h3>Connected</h3>
+    <div class="label">📡 SERVERS</div>
+    <div class="value">2 Servers</div>
   </div>
 
   <div class="card">
-    <p>⏱ Uptime</p>
-    <h3>Running</h3>
+    <div class="label">⏱ UPTIME</div>
+    <div class="value">Running</div>
   </div>
 
   <div class="card">
-    <p>📶 Ping</p>
-    <h3>Stable</h3>
+    <div class="label">📶 PING</div>
+    <div class="value">~60ms</div>
   </div>
 
 </div>
 
-<!-- QUICK ACTIONS -->
+<!-- ACTIONS -->
 <div class="grid">
 
-  <div class="card">
+  <div class="card action">
     <p>⚡ Invite Bot</p>
     <a href="YOUR_INVITE_LINK">
       <button class="btn">Open Invite</button>
     </a>
   </div>
 
-  <div class="card">
-    <p>📄 Legal</p>
+  <div class="card action">
+    <p>📄 Privacy Policy</p>
     <a href="privacy.html">
-      <button class="btn">Privacy</button>
+      <button class="btn">Open</button>
     </a>
   </div>
 
-  <div class="card">
+  <div class="card action">
     <p>📜 Terms</p>
     <a href="terms.html">
-      <button class="btn">Terms</button>
+      <button class="btn">Open</button>
     </a>
   </div>
 
