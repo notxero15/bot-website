@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chromify Dashboard</title>
+</head>
+<body style="background:#0f0f0f;color:white;text-align:center;font-family:Arial;padding:40px;">
+
+<h1>📊 Bot Dashboard</h1>
+
+<div id="servers">Servers: loading...</div>
+<div id="uptime">Uptime: loading...</div>
+
+<script>
+async function load() {
+  const res = await fetch("/api/status");
+  const data = await res.json();
+
+  document.getElementById("servers").innerText = "Servers: " + data.servers;
+  document.getElementById("uptime").innerText = "Uptime: " + data.uptime + "s";
+}
+
+load();
+</script>
+
+</body>
+</html>
