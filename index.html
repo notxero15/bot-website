@@ -1,1 +1,219 @@
-<!DOCTYPE html> <html> <head> <title>Chromify Bot</title> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <style> body { margin: 0; font-family: Arial, sans-serif; background: #0b0b10; color: white; text-align: center; padding-top: 80px; } /* ========================= TOP BANNER (BIGGER) ========================= */ #topBanner { position: fixed; top: 0; left: 0; width: 100%; height: 75px; background: rgba(15, 15, 20, 0.75); backdrop-filter: blur(14px); display: flex; align-items: center; justify-content: center; gap: 12px; z-index: 999; transition: 0.4s ease; } #topBanner.hidden { opacity: 0; transform: translateY(-100%); pointer-events: none; } #topBanner img { height: 38px; width: 38px; border-radius: 10px; } #topBanner span { font-weight: bold; font-size: 24px; letter-spacing: 0.5px; } /* ========================= HERO (PARALLAX) ========================= */ .hero { position: relative; height: 420px; display: flex; align-items: center; justify-content: center; overflow: hidden; } .hero::before { content: ""; position: absolute; top: -50%; left: 0; width: 100%; height: 200%; background: url("https://i.imgur.com/I29plAr.png") center/cover no-repeat; transform: translateY(0px); z-index: -2; } .hero::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: -1; } .hero-content { z-index: 2; } .subtitle { color: #ddd; font-size: 18px; margin-bottom: 15px; } .btn { padding: 12px 26px; border: none; border-radius: 10px; background: #5865F2; color: white; cursor: pointer; font-size: 15px; transition: 0.3s; } .btn:hover { transform: scale(1.05); background: #4752c4; } /* ========================= SECTIONS ========================= */ .section { padding: 50px 20px; } h2 { color: #ddd; } .grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; } .card { background: #151522; padding: 18px; width: 220px; border-radius: 12px; border: 1px solid #222; transition: 0.3s; } .card:hover { transform: translateY(-6px); border-color: #5865F2; } /* ========================= FOOTER ========================= */ .footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; color: #666; font-size: 13px; } .footer a { color: #aaa; text-decoration: none; margin: 0 10px; } .footer a:hover { color: #5865F2; } </style> </head> <body> <!-- TOP BANNER --> <div id="topBanner"> <img src="https://i.imgur.com/fKOcx4u.png" alt="logo"> <span>Chromify</span> </div> <!-- HERO --> <div class="hero"> <div class="hero-content"> <div class="subtitle"> Modern multi-server color role system for Discord </div> <a href="https://discord.com/oauth2/authorize?client_id=1495417079069937765&permissions=268504128&integration_type=0&scope=bot+applications.commands" target="_blank"> <button class="btn">Invite Bot</button> </a> </div> </div> <!-- FEATURES --> <div class="section"> <h2>✨ Features</h2> <div class="grid"> <div class="card">🎨 Reaction Roles</div> <div class="card">⚡ Slash Commands</div> <div class="card">🌍 Multi-Server</div> <div class="card">🔒 Secure System</div> </div> </div> <!-- COMMANDS --> <div class="section"> <h2>📌 Commands</h2> <div class="grid"> <div class="card">/colorpanel</div> <div class="card">/colorpaneldelete</div> <div class="card">/help</div> <div class="card">/about</div> <div class="card">/ping</div> </div> </div> <!-- FOOTER --> <div class="footer"> Chromify Bot • Clean • Fast • Modern <br><br> <a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms of Service</a> </div> <!-- ========================= PARALLAX SCRIPT ========================= --> <script> let lastScroll = window.scrollY; const banner = document.getElementById("topBanner"); window.addEventListener("scroll", () => { const current = window.scrollY; // hide/show banner if (current > lastScroll) { banner.classList.add("hidden"); } else { banner.classList.remove("hidden"); } lastScroll = current; // PARALLAX EFFECT const hero = document.querySelector(".hero::before"); const bg = document.querySelector(".hero"); document.querySelector(".hero").style.backgroundPositionY = current * 0.4 + "px"; }); </script> </body> </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chromify Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b10;
+      color: white;
+      text-align: center;
+    }
+
+    /* =========================
+       TOP BANNER (LOGO BAR)
+    ========================= */
+    #topBanner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: rgba(15, 15, 20, 0.75);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    #topBanner img {
+      height: 36px;
+      width: 36px;
+      border-radius: 10px;
+    }
+
+    #topBanner span {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       HERO WITH BANNER IMAGE
+    ========================= */
+    .hero {
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: url("https://i.imgur.com/I29plAr.png") center/cover no-repeat;
+      background-attachment: fixed;
+      margin-top: 70px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* BIG TITLE (Chromify back where you wanted it) */
+    .title {
+      font-size: 52px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #5865F2, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #ddd;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      padding: 12px 26px;
+      border: none;
+      border-radius: 10px;
+      background: #5865F2;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #4752c4;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+    .section {
+      padding: 50px 20px;
+    }
+
+    h2 {
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .card {
+      background: #151522;
+      padding: 18px;
+      width: 220px;
+      border-radius: 12px;
+      border: 1px solid #222;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #5865F2;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    .footer {
+      margin-top: 60px;
+      padding: 30px;
+      border-top: 1px solid #222;
+      color: #666;
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: #aaa;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      color: #5865F2;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TOP BANNER -->
+<div id="topBanner">
+  <img src="https://i.imgur.com/fKOcx4u.png" alt="logo">
+  <span>Chromify</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+
+    <!-- Chromify BACK HERE (as requested) -->
+    <div class="title">Chromify</div>
+
+    <div class="subtitle">
+      Modern multi-server color role system for Discord
+    </div>
+
+    <a href="https://discord.com/oauth2/authorize?client_id=1495417079069937765&permissions=268504128&integration_type=0&scope=bot+applications.commands" target="_blank">
+      <button class="btn">Invite Bot</button>
+    </a>
+
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section">
+  <h2>✨ Features</h2>
+
+  <div class="grid">
+    <div class="card">🎨 Reaction Roles</div>
+    <div class="card">⚡ Slash Commands</div>
+    <div class="card">🌍 Multi-Server Support</div>
+    <div class="card">🔒 Secure System</div>
+  </div>
+</div>
+
+<!-- COMMANDS -->
+<div class="section">
+  <h2>📌 Commands</h2>
+
+  <div class="grid">
+    <div class="card">/colorpanel</div>
+    <div class="card">/colorpaneldelete</div>
+    <div class="card">/help</div>
+    <div class="card">/about</div>
+    <div class="card">/ping</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Chromify Bot • Clean • Fast • Modern
+  <br><br>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+</div>
+
+</body>
+</html>
